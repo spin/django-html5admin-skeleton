@@ -1,5 +1,5 @@
 /**
-* FJST libraries module
+* Backbone libraries module
 *
 * @module Libraries
 */
