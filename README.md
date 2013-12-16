@@ -1,3 +1,3 @@
-# Django 1.6 HTML5Admin Project Template
+# Django HTML5Admin project template
 
 ## About
