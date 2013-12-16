@@ -1,0 +1,97 @@
+/* jQuery Datatables tweaks for HTML5Admin template */
+
+.cursored {
+    cursor: pointer;
+    *cursor: hand;
+}
+
+#html5admin_data_table {
+    fieldset {
+        padding-bottom: 0;
+    }
+}
+
+div.dataTables_wrapper {
+    background: #F1F1F4;
+
+    .pagination {
+        margin: 0;
+        padding: 5px 5px 0 0;
+    }
+}
+
+div.dataTables_length {
+    margin-left: 30px;
+    padding: 5px 0 5px 0;
+
+    label {
+        float: left;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    select {
+        width: 75px;
+    }
+}
+
+div.dataTables_filter {
+    label {
+        float: right;
+        text-align: right;
+        padding-right: 10px;
+    }
+}
+
+div.dataTables_info {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+table.tb_html5admin {
+    thead {
+        background: #FFF;
+        
+        th {
+            padding: 8px 18px 5px 10px;
+        }
+    }
+
+    tbody td {
+        vertical-align: middle;
+    }
+
+    td.alignCenter {
+        text-align: center;
+    }
+}
+
+table.table thead {
+    .alignCenter {
+        text-align: center;
+    }
+    .sorting {
+        .cursored;
+        background: url('../images/sort_both.png') no-repeat center right;
+    }
+    .sorting_asc {
+        .cursored;
+        background: url('../images/sort_asc.png') no-repeat center right;
+    }
+    .sorting_desc {
+        .cursored;
+        background: url('../images/sort_desc.png') no-repeat center right;
+    }
+    .sorting_asc_disabled {
+        .cursored;
+        background: url('../images/sort_asc_disabled.png') no-repeat center right;
+    }
+    .sorting_desc_disabled {
+        .cursored;
+        background: url('../images/sort_desc_disabled.png') no-repeat center right;
+    }
+}
+
+#bb-opra_data_table_view_wrapper {
+    margin-top: -5px;
+}
