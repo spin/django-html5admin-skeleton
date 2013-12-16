@@ -86,3 +86,8 @@ STATIC_URL = '/{{ project_name }}_static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# Additional locations of templates files
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
