@@ -1,0 +1,140 @@
+{% extends 'demo_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block js %}
+    <script data-main="{{ STATIC_URL }}js/apps/demo/form-main.js" src="{{ STATIC_URL }}js/libs/require/require.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block section_title %} {{ title }} {% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs_container">
+        <article class="breadcrumbs">
+            <a href="{% url 'demo.views.form' %}">{% trans 'Django HTML5Admin Template' %}</a>
+            <div class="breadcrumb_divider"></div>
+            <a href="#">{% trans 'Demo' %}</a>
+            <div class="breadcrumb_divider"></div>
+            <a class="current">{{ title }}</a>
+        </article>
+    </div>
+{% endblock %}
+
+{% block main %}
+
+<form id="form_demo" class="html5admin-form form-horizontal" method="POST" action="">
+<article class="module width_full">
+    {% csrf_token %}
+
+    <header><h3 class="tabs_involved">{{ title }}</h3></header>
+    <div class="module_content">
+    <fieldset>
+        <legend>&nbsp;{% trans 'Form Data' %}&nbsp;</legend>
+        <div class="row-fluid">
+        	<div class="span6">
+                <div class="control-group">
+                    {% trans 'Bill No.' %}
+                    <div class="controls">
+                        <input type="text" class="span12" maxlength="50" name="bill_no" />
+                    </div>
+                </div>
+            </div>
+        	<div class="span6">
+                <div class="control-group">
+                    {% trans 'Bill Date' %}
+                    <div class="controls">
+                        <div id="datetimepicker-id_bill_date" class="input-prepend date">
+                            <span class="add-on">
+                                <i class="icon-calendar" data-date-icon="icon-calendar" data-time-icon="icon-time"></i>
+                            </span>
+                            <input type="text" class="span10" name="bill_date" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+        	<div class="span8">
+                <div class="control-group">
+                    {% trans 'Tour Name' %}
+                    <div class="controls">
+                        <input type="text" class="span12" maxlength="256" name="tour_name" />
+                    </div>
+                </div>
+            </div>
+        	<div class="span4">
+            </div>
+        </div>
+        <div class="row-fluid">
+        	<div class="span6">
+                <div class="control-group">
+                    {% trans 'Customer' %}
+                    <div class="controls">
+                        <select id="input-tour_escort" name="input-tour_escort" class="span12">
+                            <option selected="selected" value="">---------</option>
+                            <option value="1">Customer 1</option>
+                            <option value="2">Customer 2</option>
+                            <option value="3">Customer 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        	<div class="span6">
+                <div class="control-group">
+                    {% trans 'Tour Escort' %}
+                    <div class="controls">
+                        <select id="input-tour_escort" name="input-tour_escort" class="span12">
+                            <option selected="selected" value="">---------</option>
+                            <option value="1">Escort 1</option>
+                            <option value="2">Escort 2</option>
+                            <option value="3">Escort 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+        	<div class="span6">
+                <div class="control-group">
+                    {% trans 'Departure Date' %}
+                    <div class="controls">
+                        <div id="datetimepicker-id_departure_date" class="input-prepend date">
+                            <span class="add-on">
+                                <i class="icon-calendar" data-date-icon="icon-calendar" data-time-icon="icon-time"></i>
+                            </span>
+                            <input type="text" class="span10" name="departure_date" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        	<div class="span6">
+                <div class="control-group">
+                    {% trans 'Gathering Time' %}
+                    <div class="controls">
+                        <div id="datetimepicker-id_gathering_time" class="input-prepend date">
+                            <span class="add-on">
+                                <i class="icon-time" data-date-icon="icon-calendar" data-time-icon="icon-time"></i>
+                            </span>
+                            <input type="text" class="span10" name="gathering_time" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </fieldset> <!-- <fieldset class="my-fieldset"> -->
+
+    </div> <!-- <div class="module_content"> -->
+    <footer>
+        <div class="submit_link">
+            <button id="btn_reset" class="btn btn-small" type="reset">
+                <i class="icon-remove"></i>&nbsp;{% trans "Reset" %}&nbsp;&nbsp;
+            </button>
+            <button id="btn_add_submit" class="btn btn-primary btn-small" type="button">
+                <i class="icon-ok icon-white"></i>&nbsp;{% trans "OK" %}&nbsp;&nbsp;&nbsp;&nbsp;
+            </button>
+        </div>
+    </footer>
+</article>
+</form>
+{% endblock %}
