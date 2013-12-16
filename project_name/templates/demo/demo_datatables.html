@@ -1,0 +1,44 @@
+{% extends 'demo/demo_base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block js %}
+    <script data-main="{{ STATIC_URL }}js/apps/demo/datatables-main.js" src="{{ STATIC_URL }}js/libs/require/require.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block section_title %} {{ title }} {% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs_container">
+        <article class="breadcrumbs">
+            <a href="{% url 'demo.views.form' %}">{% trans 'Django HTML5Admin Template' %}</a>
+            <div class="breadcrumb_divider"></div>
+            <a href="#">{% trans 'Demo' %}</a>
+            <div class="breadcrumb_divider"></div>
+            <a class="current">{{ title }}</a>
+        </article>
+    </div>
+{% endblock %}
+
+{% block main %}
+<article class="module width_full">
+    <header>
+        <h3 class="tabs_involved">{{ title }}</h3>
+    </header>
+    <table class="table table-bordered table-striped table-html5admin" id="bb-demo_datatables_view">
+        <thead>
+            <tr>
+                <th class="alignCenter">{% trans 'Bill Date' %}</th>
+                <th>{% trans 'Bill No.' %}</th>
+                <th>{% trans 'Tour Name' %}</th>
+                <th>{% trans 'Customer' %}</th>
+                <th>{% trans 'Contact' %}</th>
+                <th class="alignCenter">{% trans 'Actions' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</article>
+{% endblock %}

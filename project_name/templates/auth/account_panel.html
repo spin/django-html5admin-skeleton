@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load url from future %}
+<div class="btn_view_site" id="account_panel">
+    <a class="btn-inverse dropdown-toggle" data-toggle="dropdown">
+    {% if user.first_name and user.first_name.strip %}
+        <i class="icon-user icon-white"></i>&nbsp;{{user.first_name}}&nbsp;
+    {% else %}
+        <i class="icon-user icon-white"></i>&nbsp;{{user.username}}&nbsp;
+    {% endif %}
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{% url 'auth.views.logout' %}">
+                    <i class="icon-off"></i>&nbsp;{% trans 'Log out' %}&nbsp;
+                </a>
+            </li>
+        </ul>
+    </a>
+</div>

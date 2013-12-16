@@ -1,0 +1,46 @@
+{% load i18n %}
+{% load url from future %}
+<h3>{% trans 'Bill' %}</h3>
+<ul class="toggle">
+    <li class="icn_new_article"><a href="{% url 'bill.views.postform' %}">{% trans 'New Bill' %}</a></li>
+    <li class="icn_categories"><a href="{% url 'bill.views.list' %}">{% trans 'Bill List' %}</a></li>
+    <li class="icn_categories"><a href="{% url 'bill.views.soldlist' %}">{% trans 'Sold Bill List' %}</a></li>
+    <li class="icn_new_article"><a href="{% url 'invoice.views.billtransfer' %}">{% trans 'New Invoice' %}</a></li>
+</ul>
+<h3>{% trans 'Invoice' %}</h3>
+<ul class="toggle">
+    <li class="icn_categories"><a href="{% url 'invoice.views.list' %}">{% trans 'Invoice List' %}</a></li>
+    <li class="icn_categories"><a href="{% url 'invoice.views.settledlist' %}">{% trans 'Settled Invoice List' %}</a></li>
+</ul>
+<h3>{% trans 'Product' %}</h3>
+<ul class="toggle">
+    <li class="icn_new_article"><a href="{% url 'product.views.postform' %}">{% trans 'New Product' %}</a></li>
+    <li class="icn_categories"><a href="{% url 'product.views.list' %}">{% trans 'Product List' %}</a></li>
+</ul>
+<h3>{% trans 'Customer' %}</h3>
+<ul class="toggle">
+    <li class="icn_add_user"><a href="{% url 'customer.views.postform' %}">{% trans 'New Customer' %}</a></li>
+    <li class="icn_view_users"><a href="{% url 'customer.views.list' %}">{% trans 'Customer List' %}</a></li>
+</ul>
+<h3>{% trans 'Account' %}</h3>
+<ul class="toggle">
+    <li class="icn_add_user"><a href="{% url 'account.views.postform' %}">{% trans 'New Account' %}</a></li>
+    <li class="icn_view_users"><a href="{% url 'account.views.list' %}">{% trans 'Account List' %}</a></li>
+</ul>
+<h3>{% trans 'Sheet' %}</h3>
+<ul class="toggle">
+    <li class="icn_categories"><a href="{% url 'bill.views.weeklysheet' %}">{% trans 'Weekly Billing Sheet' %}</a></li>
+{% ifequal user.groups.all.0.name 'manager' %}
+    <li class="icn_categories"><a href="{% url 'invoice.views.debitnote' %}">{% trans 'Debit Note' %}</a></li>
+    <li class="icn_categories"><a href="{% url 'invoice.views.statistics' %}">{% trans 'Accounts Statistics' %}</a></li>
+    <li class="icn_categories"><a href="{% url 'receipt.views.summary' %}">{% trans 'Receipt Summary' %}</a></li>
+    {% endifequal %}
+</ul>
+<h3>{% trans 'Receipt' %}</h3>
+<ul class="toggle">
+    <li class="icn_categories"><a href="{% url 'receipt.views.postform' %}">{% trans 'Add Receipt' %}</a></li>
+    <li class="icn_categories"><a href="{% url 'receipt.views.list' %}">{% trans 'Receipt Issuance List' %}</a></li>
+</ul>
+<footer>
+    <hr />
+</footer>
