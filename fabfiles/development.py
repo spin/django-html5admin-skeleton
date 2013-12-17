@@ -29,8 +29,8 @@ def ensure_virtualenv():
     if os.path.isdir(env.virtualenv):
         return
 
-    print yellow('%s does not exist !' % env.virtualenv)
-    local('/bin/bash -l -c ". /usr/local/bin/virtualenvwrapper.sh && mkvirtualenv %s"' % env.venv_name)
+    print yellow('{0} does not exist !'.format(env.virtualenv))
+    local('/bin/bash -l -c ". /usr/local/bin/virtualenvwrapper.sh && mkvirtualenv {0}"'.format(env.venv_name))
 
 
 def virtualenv(venv_dir):
@@ -44,7 +44,7 @@ def local_venv(command, **kwargs):
     Run local command in the virtualenv which has been specified by using
     the `virtualenv()` context manager.
     """
-    with prefix('. %s/bin/activate' % env.venv):
+    with prefix('. {0}/bin/activate'.format(env.venv)):
         local(command, **kwargs);
 
 def install_dependencies():
@@ -55,7 +55,7 @@ def install_dependencies():
 
     with virtualenv(env.virtualenv):
         local_venv('easy_install -U distribute')    # don't know why ...
-        local_venv('pip install -r %s' % env.requirements)
+        local_venv('pip install -r {0}'.format(env.requirements))
         
 
 def check_static_root():
