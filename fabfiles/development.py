@@ -21,6 +21,8 @@ env.django_settings_module = '{{ project_name }}.settings.development'
 django.settings_module(env.django_settings_module)
 from django.conf import settings as django_settings
 env.static_root = django_settings.STATIC_ROOT
+env.less_path = os.path.join(env.static_root, 'less')
+env.css_path = os.path.join(env.static_root, 'css')
     
 def ensure_virtualenv():
     """
@@ -66,6 +68,17 @@ def check_static_root():
         print red('STATIC_ROOT should not be empty !')
         exit()
 
+def build_css():
+    """
+    Build CSS from LESS
+    """
+    with lcd(env.less_path):
+        for less in glob.glob(env.lcwd + '/*.less'):
+            basename = os.path.basename(less)
+            filename = os.path.splitext(basename)[0]
+            css = os.path.join(env.css_path, filename + '.css')
+            local('lessc {0} {1}'.format(less, css))
+
 @task
 def run_tests():
     """
@@ -83,4 +96,4 @@ def build_static():
 
     with virtualenv(env.virtualenv):
         local_venv('python manage.py collectstatic -v 0 --clear --noinput')
-
+        build_css()
