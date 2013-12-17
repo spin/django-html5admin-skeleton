@@ -1,4 +1,4 @@
-import os
+import os, glob
 
 from fabric.api import *
 from fabric.colors import red, green, yellow
