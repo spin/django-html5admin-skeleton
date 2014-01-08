@@ -79,11 +79,30 @@ def build_css():
             css = os.path.join(env.css_path, filename + '.css')
             local('lessc {0} {1}'.format(less, css))
 
+def migrate_db():
+    """
+    Synchronize the database with the current set of models and migrations.
+    """
+    ensure_virtualenv()
+
+    with virtualenv(env.virtualenv):
+        local_venv('python manage.py syncdb')
+
+@task
+def prepare():
+    """
+    Prepare environment for development.
+    """
+    install_dependencies()
+    migrate_db()
+
 @task
 def run_tests():
     """
     Run the Django test suite as is.
     """
+    ensure_virtualenv()
+
     with virtualenv(env.virtualenv):
         local_venv('python manage.py test')
 
@@ -97,3 +116,11 @@ def build_static():
     with virtualenv(env.virtualenv):
         local_venv('python manage.py collectstatic -v 0 --clear --noinput')
         build_css()
+
+@task
+def run_server():
+    """
+    Run the development web server on the local machine.
+    """
+    with virtualenv(env.virtualenv):
+        local_venv('python manage.py runserver')
