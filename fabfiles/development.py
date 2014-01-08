@@ -20,7 +20,12 @@ env.django_settings_module = '{{ project_name }}.settings.development'
 # Set static_root from django settings
 django.settings_module(env.django_settings_module)
 from django.conf import settings as django_settings
-env.static_root = django_settings.STATIC_ROOT
+
+if django_settings.STATIC_ROOT:
+    env.static_root = django_settings.STATIC_ROOT
+else:
+    env.static_root = os.path.join(env.project_dir, '{{ project_name }}/static')
+
 env.less_path = os.path.join(env.static_root, 'less')
 env.css_path = os.path.join(env.static_root, 'css')
     
