@@ -21,11 +21,7 @@ env.django_settings_module = '{{ project_name }}.settings.development'
 django.settings_module(env.django_settings_module)
 from django.conf import settings as django_settings
 
-if django_settings.STATIC_ROOT:
-    env.static_root = django_settings.STATIC_ROOT
-else:
-    env.static_root = os.path.join(env.project_dir, '{{ project_name }}/static')
-
+env.static_root = django_settings.STATIC_ROOT
 env.less_path = os.path.join(env.static_root, 'less')
 env.css_path = os.path.join(env.static_root, 'css')
     
@@ -65,13 +61,14 @@ def install_dependencies():
         local_venv('pip install -r {0}'.format(env.requirements))
         
 
-def check_static_root():
+def valid_static_root():
     """
     Make sure `STATIC_ROOT` is valid (not empty or root directory)
     """
     if env.static_root.strip() == '' or env.static_root.strip() == '/':
-        print red('STATIC_ROOT should not be empty !')
-        exit()
+        return False
+
+    return True
 
 def build_css():
     """
@@ -116,11 +113,16 @@ def build_static():
     """
     Collect and build static files.
     """
-    check_static_root()
+    if valid_static_root():
+        with virtualenv(env.virtualenv):
+            local_venv('python manage.py collectstatic -v 0 --clear --noinput')
+    else:
+        # `STATIC_ROOT` is empty, use default static diretory
+        env.static_root = os.path.join(env.project_dir, '{{ project_name }}/static')
+        env.less_path = os.path.join(env.static_root, 'less')
+        env.css_path = os.path.join(env.static_root, 'css')
 
-    with virtualenv(env.virtualenv):
-        local_venv('python manage.py collectstatic -v 0 --clear --noinput')
-        build_css()
+    build_css()
 
 @task
 def run_server():
