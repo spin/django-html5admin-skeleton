@@ -81,6 +81,7 @@ def build_css():
             css = os.path.join(env.css_path, filename + '.css')
             local('lessc {0} {1}'.format(less, css))
 
+@task
 def migrate_db():
     """
     Synchronize the database with the current set of models and migrations.
