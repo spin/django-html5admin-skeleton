@@ -33,21 +33,25 @@
         <div class="row-fluid">
         	<div class="span6">
                 <div class="control-group">
-                    {% trans 'Bill No.' %}
+                    <label class="control-label" for="id_bill_no">
+                        {% trans 'Bill No.' %}
+                    </label>
                     <div class="controls">
-                        <input type="text" class="span12" maxlength="50" name="bill_no" />
+                        <input type="text" class="span12" maxlength="50" name="bill_no" id="id_bill_no" />
                     </div>
                 </div>
             </div>
         	<div class="span6">
                 <div class="control-group">
-                    {% trans 'Bill Date' %}
+                    <label class="control-label" for="id_bill_date">
+                        {% trans 'Bill Date' %}
+                    </label>
                     <div class="controls">
                         <div id="datetimepicker-id_bill_date" class="input-prepend date">
                             <span class="add-on">
                                 <i class="icon-calendar" data-date-icon="icon-calendar" data-time-icon="icon-time"></i>
                             </span>
-                            <input type="text" class="span10" name="bill_date" />
+                            <input type="text" class="span10" name="bill_date" id="id_bill_date" />
                         </div>
                     </div>
                 </div>
@@ -56,7 +60,9 @@
         <div class="row-fluid">
         	<div class="span8">
                 <div class="control-group">
-                    {% trans 'Tour Name' %}
+                    <label class="control-label" for="id_tour_name">
+                        {% trans 'Tour Name' %}
+                    </label>
                     <div class="controls">
                         <input type="text" class="span12" maxlength="256" name="tour_name" />
                     </div>
@@ -68,9 +74,11 @@
         <div class="row-fluid">
         	<div class="span6">
                 <div class="control-group">
-                    {% trans 'Customer' %}
+                    <label class="control-label" for="id_customer">
+                        {% trans 'Customer' %}
+                    </label>
                     <div class="controls">
-                        <select id="input-tour_escort" name="input-tour_escort" class="span12">
+                        <select id="id-customer" name="customer" class="span12">
                             <option selected="selected" value="">---------</option>
                             <option value="1">Customer 1</option>
                             <option value="2">Customer 2</option>
@@ -81,9 +89,11 @@
             </div>
         	<div class="span6">
                 <div class="control-group">
-                    {% trans 'Tour Escort' %}
+                    <label class="control-label" for="id_tour_escort">
+                        {% trans 'Tour Escort' %}
+                    </label>
                     <div class="controls">
-                        <select id="input-tour_escort" name="input-tour_escort" class="span12">
+                        <select id="id_tour_escort" name="tour_escort" class="span12">
                             <option selected="selected" value="">---------</option>
                             <option value="1">Escort 1</option>
                             <option value="2">Escort 2</option>
@@ -96,26 +106,30 @@
         <div class="row-fluid">
         	<div class="span6">
                 <div class="control-group">
-                    {% trans 'Departure Date' %}
+                    <label class="control-label" for="id_departure_date">
+                        {% trans 'Departure Date' %}
+                    </label>
                     <div class="controls">
                         <div id="datetimepicker-id_departure_date" class="input-prepend date">
                             <span class="add-on">
                                 <i class="icon-calendar" data-date-icon="icon-calendar" data-time-icon="icon-time"></i>
                             </span>
-                            <input type="text" class="span10" name="departure_date" />
+                            <input type="text" class="span10" name="departure_date" id="id_departure_date" />
                         </div>
                     </div>
                 </div>
             </div>
         	<div class="span6">
                 <div class="control-group">
-                    {% trans 'Gathering Time' %}
+                    <label class="control-label" for="id_gathering_time">
+                        {% trans 'Gathering Time' %}
+                    </label>
                     <div class="controls">
                         <div id="datetimepicker-id_gathering_time" class="input-prepend date">
                             <span class="add-on">
                                 <i class="icon-time" data-date-icon="icon-calendar" data-time-icon="icon-time"></i>
                             </span>
-                            <input type="text" class="span10" name="gathering_time" />
+                            <input type="text" class="span10" name="gathering_time" id="id_gathering_time" />
                         </div>
                     </div>
                 </div>
