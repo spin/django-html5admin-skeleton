@@ -93,3 +93,6 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+
+# Redirect URL for successful login
+LOGIN_REDIRECT_URL = '/{{ project_name }}/'
