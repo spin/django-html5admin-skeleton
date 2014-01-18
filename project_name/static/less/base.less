@@ -7,4 +7,54 @@
     text-align: right;
 }
 
+/* Integrate bootstrap dropdown button with HTML5Admin
+ * template for account panel.
+ */
+#account_panel {
+    position: relative;
+    cursor: pointer; cursor: hand;
+    right: 1em;
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .caret {
+        margin-top: 13px;
+    }
+
+    .dropdown-menu {
+        left: auto;
+        right: 0;
+
+        li {
+            a {
+                /* Reset to Bootstrap style */
+                clear: both;
+                color: #333;
+                display: block;
+                font-weight: normal;
+                line-height: 20px;
+                white-space: nowrap;
+                background: none;
+                height: auto;
+                margin: 0;
+                text-align: left;
+                text-shadow: none;
+                width: auto;
+            }
+
+            a:hover, a:focus {
+                /* Reset to bootstrap style */
+                color: #FFF;
+                background: #0081C2;
+            }
+        }
+
+    }
+
+    
+
+}
+
 
