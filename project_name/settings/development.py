@@ -1,4 +1,4 @@
 from .base import *
 
 STATIC_ROOT = ''
-STATIC_MEDIA = ''
+MEDIA_ROOT = ''
