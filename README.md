@@ -22,4 +22,6 @@ Django 1.6 installed already):
 Where ``proj_name`` is the name of the project you'd like to create.
 
 
-## Acknowledgements
+## Issues
+
+https://github.com/spin/django-html5admin-skeleton/issues
